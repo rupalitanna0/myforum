@@ -1,0 +1,13 @@
+<div id="container">
+{{#each topics}}
+	<ul>
+		<a href="/"><li>Topic :         {{title}}</li></a>
+		<li>Posted Date : {{date_made}}</li>
+		<li>Views</li>
+		<li>Votes</li>
+		<li>Name : {{user.name}}</li>
+		<a href="/posts/new"><li>Add a Comment</li></a>
+	</ul>
+{{/each}}
+
+</div>
