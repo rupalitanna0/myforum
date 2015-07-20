@@ -1,4 +1,13 @@
 var db = require('../db.js');
+var bcrypt = require('bcrypt');
+var session = require('express-session');
+
+app.use(session({
+  secret: 'allthethings',
+  saveUninitialized: false,
+  resave: false
+}));
+
 module.exports.controller = function(app) {
 //For all routes related to a post put them here
 	app.get('/login', function (req, res){
@@ -17,7 +26,8 @@ module.exports.controller = function(app) {
 	
 	app.post('/login', function(req, res) {
     	bcrypt.hash(req.body.password, 10, function(err, hash) {
-
+            var geo = geoip.lookup('65.199.32.26');
+            console.log("the ip address location ###" + geo);
         	var userObj = {
             	username: req.body.name,
             	password: hash
@@ -25,7 +35,7 @@ module.exports.controller = function(app) {
 
         	req.session.name = req.body.name;
         	db.create('users', userObj, function(data) {
-            	res.redirect('/');
+            	res.redirect('/topics');
         	})
     	});
 	});
@@ -43,7 +53,7 @@ module.exports.controller = function(app) {
             	res.send('youre logged in. happy reading.'); 
         	});
    		}); 
-    	res.redirect('/');
+    	res.redirect('/topics');
 	});
 
 	app.get('/logout', function(req, res) {
