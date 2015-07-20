@@ -1,6 +1,10 @@
 var db = require('../db.js');
 module.exports.controller = function(app) {
 //For all routes related to a post put them here
+	app.get('/login', function (req, res){
+		res.render('login');
+	});
+	
 	
 	app.get('/', function(req, res) {
     	if(!req.session.name) {
@@ -13,10 +17,12 @@ module.exports.controller = function(app) {
 	
 	app.post('/login', function(req, res) {
     	bcrypt.hash(req.body.password, 10, function(err, hash) {
+
         	var userObj = {
             	username: req.body.name,
             	password: hash
         	};
+
         	req.session.name = req.body.name;
         	db.create('users', userObj, function(data) {
             	res.redirect('/');
@@ -45,4 +51,7 @@ module.exports.controller = function(app) {
   		req.session.name = null;
   		res.send('I have forgotten everything');
 	});
+
+	
+
 }

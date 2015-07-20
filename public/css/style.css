@@ -26,7 +26,7 @@ header, a, h1{
 	background-color: #e5decc;
 	color: #759da5;
 	width: 90%;
-
+	padding: 35px;
 }
 h3{
 	font-size: 16px;
@@ -55,3 +55,4 @@ li:first-child{
 	text-decoration: underline;
 	width: 700px;
 } 
+

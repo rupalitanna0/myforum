@@ -83,5 +83,7 @@ module.exports = {
       })
     })
     this.end();
-  }
+  },
+
+  // client.query('UPDATE views set views = views+1 WHERE topic_id=$1')
 };

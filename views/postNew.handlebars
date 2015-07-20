@@ -1,0 +1,19 @@
+<div id="container">
+	<form action='/posts' method="POST" style="clear: left; text-align: center;">
+		<label>Topics<br>
+      		<select name="topic_id">
+        		{{#each topics}}
+          			<option value="{{id}}">{{title}}</option>      
+        		{{/each}}
+      		</select>
+    	</label><br>
+		<TEXTAREA NAME="SpecialRequest" ROWS="5" COLS="45">
+			Please enter your special comments
+		</TEXTAREA>
+		<br><br>
+		<INPUT TYPE="submit">
+		<INPUT TYPE="reset">
+
+	</form>
+
+</div>

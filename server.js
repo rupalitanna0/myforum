@@ -6,13 +6,23 @@ var methodOverride = require('method-override');
 var logger = require('morgan');
 var path = require('path');
 var db = require('./db.js');
-var geoip = require('geoip');
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 var fs = require('fs');
 var bcrypt = require('bcrypt');
 var session = require('express-session');
-
+// var geoip = require('geoip-lite');
+// var geo = geoip.lookup(ip);
+// {
+//    range: [ <low bound of IP block>, <high bound of IP block> ],
+//    country: 'XX',                 // 2 letter ISO-3166-1 country code
+//    region: 'RR',                  // 2 character region code.  For US states this is the 2 letter
+//                                   // ISO-3166-2 subcountry code for other countries, this is the
+//                                   // FIPS 10-4 subcountry code
+//    city: "City Name",             // This is the full city name
+//    ll: [<latitude>, <longitude>]  // The latitude and longitude of the city
+// }
+// console.log("The IP is %s", geoip.pretty(ip));
 
 app.listen(3000);
 app.engine('handlebars', exphbs({defaultLayout: 'main', extname: 'handlebars'}));

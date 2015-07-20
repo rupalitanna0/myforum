@@ -1,0 +1,10 @@
+<div id="container">
+	<h3><a href="/topics">{{topic.title}}</a></h3>
+	{{#each posts}}
+	<ul>
+		<li>{{post}}</li>
+		<li>Postd on : {{date_posted}}</li>
+		<li>username: {{users.username}}</li>
+	</ul>
+	{{/each}}
+</div>
