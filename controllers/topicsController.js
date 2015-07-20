@@ -10,18 +10,24 @@ module.exports.controller = function(app) {
 			res.render('topicsShow', topic);
 		});
 	});
-	app.get('/topics/:id', function(req, res){
-		db.find('topics', req.params.id, function (topicData){
-			db.findRelations('posts', 'topic_id', req.params.id, function (postsData){
-				var topicObj = {
-					topic: topicData[0],
-					posts: postsData
-				};
-				res.render('topicWithPost', topicObj)
-			});
-		});
+	// app.get('/topics/:id', function(req, res){
+	// 	db.find('topics', req.params.id, function (topicData){
+	// 		console.log(topicData);
+	// 		db.findRelations('posts', 'topic_id', req.params.id, function (postsData){
+	// 			db.findUserName('username', 'posts', 'users', 'user_id', function (userData){
+					
+	// 				var topicObj = {
+	// 					topic: topicData[0],
+	// 					posts: postsData,
+	// 					user: userData.username
+	// 				};
+	// 				console.log("THIS IS USEROBJ", topicObj);
+	// 				res.render('topicWithPost', topicObj)
+	// 			});
+	// 		});
+	// 	});
 
-	});
+	// });
 	app.get('/topics/new', function (req, res){
 		db.all('topics', function (topics){
 			var data = {

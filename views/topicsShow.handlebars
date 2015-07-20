@@ -6,11 +6,11 @@
 <h3><a href="/topics/new">Add a Topic</a></h3>
 {{#each topics}}
 	<ul>
-		<a href="/topics/{{topic.id}}"><li>Topic :         {{title}}</li></a>
+		<a href="/topics/{{id}}"><li>Topic :         {{title}}</li></a>
 		<li>Posted Date : {{date_made}}</li>
 		<li>Views</li>
 		<li>Votes</li>
-		<li>Name : {{users.username}}</li>
+		<li>Name : {{username}}</li>
 		
 		<a href="/posts/new"><li>Add a Comment</li></a>
 	</ul>

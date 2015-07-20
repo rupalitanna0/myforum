@@ -17,6 +17,10 @@ module.exports = {
   find: function(table, id, cb) {
     pg.connect(dbUrl, function(err, client, done) {
       client.query('SELECT * FROM ' + table + ' WHERE id=' + id, function(err, result) {
+        if(err){
+          console.log("this is an err")
+        }
+        console.log(result)
         done();
         cb(result.rows);
       });
@@ -87,13 +91,23 @@ module.exports = {
   getUser: function(table, string, cb) {
     pg.connect(dbUrl, function (err, client, done) {
       var query = 'SELECT * FROM ' + table + ' WHERE username=($1)'
-      console.log(query)
       client.query(query, [string], function (err, result) {
-        console.log(result)
         cb(result.rows[0])
       })
     })
     this.end();
+  },
+  findUserName: function (columns, table, table2, column1, cb){
+      pg.connect(dbUrl, function (err, client, done){
+        var query = 'SELECT '+columns+' FROM ' + table + ' LEFT JOIN ' + table2 + ' ON ' + table+'.'+column1 + '=' + table2+'.id';
+        console.log(query)
+        client.query(query, function (err, result){
+          console.log("THIS IS RESULT", result);
+          cb(result.rows[0])
+        })
+
+      })
+
   }
   //   Select 
   //     count(views.id)

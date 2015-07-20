@@ -1,10 +1,19 @@
+<nav class="nav">
+      <a href="/home">Home</a>
+      <a href="/logout">Logout</a>
+    </nav>
+
 <div id="container">
 	<h3><a href="/topics">{{topic.title}}</a></h3>
 	{{#each posts}}
 	<ul>
 		<li>{{post}}</li>
 		<li>Postd on : {{date_posted}}</li>
-		<li>username: {{users.username}}</li>
+		<li>username: {{user}}</li>
 	</ul>
 	{{/each}}
+	<ul>
+		<li> username : {{user}}</li>
+	</ul>
+	<a href="/posts/new"><li>Add a Comment</li></a>
 </div>
