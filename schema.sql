@@ -20,7 +20,8 @@ CREATE TABLE topics(
 	id SERIAL PRIMARY KEY,
 	title VARCHAR(255),
 	user_id INTEGER REFERENCES users,
-	date_made TIMESTAMP default current_timestamp
+	date_made TIMESTAMP default current_timestamp,
+	votes INTEGER
 );
 
 
@@ -38,10 +39,4 @@ CREATE TABLE views(
 	topic_id INTEGER REFERENCES topics,
 	views INTEGER
 	
-);	
-CREATE TABLE votes(
-	id SERIAL PRIMARY KEY,
-	user_id INTEGER REFERENCES users,
-	topic_id INTEGER REFERENCES topics,
-	votes INTEGER
 );	

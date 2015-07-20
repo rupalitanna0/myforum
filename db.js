@@ -103,11 +103,27 @@ module.exports = {
         console.log(query)
         client.query(query, function (err, result){
           console.log("THIS IS RESULT", result);
-          cb(result.rows[0])
+          cb(result.rows)
         })
 
       })
+      this.end();
+  },
+  udateView: function(){
+    pg.connect(dbUrl, function (err, client, done){
+        var query= 'UPDATE ' + table +' SET '+ columns3+  '=' columns3 + 1 +' WHERE ' +table+'.'+columns+'='+columns2;
+        console.log(query)
+        client.query(query, function (err, result){
+          console.log("THIS IS RESULT", result);
+          cb(result.rows)
+        })
 
+      })
+      this.end();
+
+    // client.query(query, function (err, table, RevisionId, columns, columns2 done){
+    //   console.log("this is ")
+    // })
   }
   //   Select 
   //     count(views.id)

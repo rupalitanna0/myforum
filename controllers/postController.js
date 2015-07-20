@@ -13,11 +13,17 @@ module.exports.controller = function(app) {
 	});
 	
 	app.get('/posts/new', function (req, res){
-		res.render('postNew');
+		db.all('topics', function (topics){
+			var data= {
+				topics: topics
+			}
+			res.render('postNew', data);
+		})
+		
 	});
-	app.post('/posts/new', function(req, res){
+	app.post('/posts', function(req, res){
 		db.create('posts', req.body, function (post){
-			res.render('posts');
+			res.redirect('/topics');
 		});
 
 	});
