@@ -1,4 +1,9 @@
-<form action="/users" method="POST" style="clear: left; text-align: center;">
+<nav class='nav'>
+	<a href="/home">Home</a>
+      <a href="/login">Login</a>
+</nav>
+
+<form action="/signUp" method="POST" style="clear: left; text-align: center;">
 	<label for="first_name">First Name
 		<input type="text" name="first_name" ><br>
 	</label>
@@ -9,7 +14,7 @@
 		<input type="text" name="username" ><br>
 	</label>
 	<label for="password">Password
-		<input type="text" name="password" ><br>
+		<input type="password" name="password" ><br>
 	</label>
 	<input type="submit" name="submit" value="submit">
 </form>

@@ -27,6 +27,7 @@ header, a, h1{
 	color: #759da5;
 	width: 90%;
 	padding: 35px;
+	height: auto;
 }
 h3{
 	font-size: 16px;

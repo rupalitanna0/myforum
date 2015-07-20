@@ -8,12 +8,15 @@ var path = require('path');
 var db = require('./db.js');
 var fs = require('fs');
 var geoip = require('geoip-lite');
+var bcrypt = require('bcrypt');
+var session = require('express-session');
 //
 
 app.listen(3000);
 app.engine('handlebars', exphbs({defaultLayout: 'main', extname: 'handlebars'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
+
 
 app.use(bodyParser.urlencoded());
 app.use(express.static('public'));
@@ -29,7 +32,11 @@ app.use(methodOverride(function(req, res) {
 
 app.use(bodyParser.json());
 
-
+app.use(session({
+  secret: 'allthethings',
+  saveUninitialized: false,
+  resave: false
+}));
 fs.readdirSync('./controllers').forEach(function (file) {
  if(file.substr(-3) == '.js') {
      route = require('./controllers/' + file);
