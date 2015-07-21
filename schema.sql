@@ -19,7 +19,7 @@ CREATE TABLE topics(
 	title VARCHAR(255),
 	user_id INTEGER REFERENCES users,
 	date_made TIMESTAMP default current_timestamp,
-	views INTEGER,
+	views INTEGER not null default 0, 
 	img TEXT
 
 );
@@ -33,7 +33,7 @@ CREATE TABLE posts(
 	topic_id INTEGER REFERENCES topics,
 	post TEXT,
 	location VARCHAR(255),
-	votes INTEGER
+	votes INTEGER not null default 0
 
 );	
 
