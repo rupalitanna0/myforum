@@ -20,7 +20,8 @@ CREATE TABLE topics(
 	title VARCHAR(255),
 	user_id INTEGER REFERENCES users,
 	date_made TIMESTAMP default current_timestamp,
-	views INTEGER
+	views INTEGER,
+	img 
 
 );
 
@@ -35,9 +36,3 @@ CREATE TABLE posts(
 	location VARCHAR(255)
 );	
 
-CREATE TABLE votes(
-	id SERIAL PRIMARY KEY,
-	user_id INTEGER REFERENCES users,
-	topic_id INTEGER REFERENCES topics,
-	votes INTEGER
-);	

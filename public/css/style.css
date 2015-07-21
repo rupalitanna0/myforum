@@ -46,14 +46,16 @@ label input{
 	margin: 10px;
 }
 ul{
-	border: 2px solid #53432c;
+	
 	list-style: none;
-	border-radius: 10px;
+	
 	line-height: 1.5em;
 
 }
 li:first-child{
-	text-decoration: underline;
 	width: 700px;
 } 
 
+.topics{
+	color: black;
+}

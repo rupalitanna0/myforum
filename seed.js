@@ -5,6 +5,7 @@ var username = ["rr"]
 var password = ["2015"]
 
 
+
 var title=["Healthy Eating Habits for Your Child", "Guide your family's choices rather than dictate foods.", " Plan for snacks."]
 var post=["By teaching your children healthy eating habits, and modeling these behaviors in yourself, you can help your children maintain a healthy weight and normal growth. Also, the eating habits your children pick up when they are young will help them maintain a healthy lifestyle when they are adults.", "Make a wide variety of healthful foods available in the house. This practice will help your children learn how to make healthy food choices. Leave the unhealthy choices like chips, soda, and juice at the grocery store. Serve water with meals.", "Continuous snacking may lead to overeating, but snacks that are planned at specific times during the day can be part of a nutritious diet, without spoiling a child's appetite at meal times. You should make snacks as nutritious as possible, without depriving your children of occasional chips or cookies, especially at parties or other social events."]
 var view = [1, 3, 5];
@@ -14,7 +15,7 @@ var firstuser = {
   username: username[0],
   password: password[0]
 };
-
+var votes=[1, 3, 4]
 var users = [firstuser]
 
 var firsttopic = {
@@ -36,18 +37,21 @@ var firstPost ={
   user_id: null,
   topic_id: null,
   post: post[0],
-  location: null
+  location: null,
+  votes: votes[0]
 };
 var secondPost ={
   user_id: null,
   topic_id: null,
   post: post[1],
-  location: null
+  location: null,
+  votes: votes[1]
 };
 var thirdPost ={
   topic_id: null,
   post: post[2],
-  location: null
+  location: null,
+  votes: votes[2]
 };
 
 for (var i=0; i < users.length; i++){

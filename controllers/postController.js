@@ -22,6 +22,13 @@ module.exports.controller = function(app) {
 		
 	});
 	app.post('/posts', function(req, res){
+		// var geo = geoip.lookup(req.ip);
+		// var postObject = {
+		// 	data_posted : req.body.data_posted,
+		// 	user_id : req.session.currentuser,
+		// 	topic_id : whatever,
+		// 	location : geo.location
+		// };
 		db.create('posts', req.body, function (post){
 			res.redirect('/topics');
 		});

@@ -49,24 +49,25 @@ module.exports.controller = function(app) {
 	});
 
 	app.post('/login', function(req, res) {
-        db.getUser('users', req.body.username, function (user) {
-         var passwordCorrect = bcrypt.compare(req.body.password, user.password, function (err, result) {
-                         console.log(passwordCorrect)
-
-             if(result){
-                req.session.currentuser = user.id;
-                res.redirect('/topics')
-             } else {
-                
-                res.redirect('/login')
-             }
-         }) 
-        })
+    db.getUser('users', req.body.username, function (user) {
+      if(!user){
+        res.redirect('/login');
+      } else {
+        bcrypt.compare(req.body.password, user.password, function (err, result) {
+           if(result){
+              req.session.currentuser = user.id;
+              res.redirect('/topics')
+           }else {
+              res.redirect('/login')
+           }
+        }); 
+      }
     });
+  });
 
 	app.get('/logout', function(req, res) {
   	// delete req.session.name;
-  		req.session.name = null;
+  		req.session.currentuser = null;
         res.redirect('/home')
   		res.send('I have forgotten everything');
 	});
