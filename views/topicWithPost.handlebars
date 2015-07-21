@@ -9,9 +9,11 @@
 	{{#each posts}}
 	<ul>
 		<li style="text-align: justify;">{{post}}</li><br>
-		<li>Postd on : {{date_posted}} || username: {{../user}} || Votes: {{votes}} <form action="\updateVote" method="POST" style="border:none; display:inline;">
-		<input type="hidden" name="_method" value="PUT">
-			<input type="button" name="votes" value="Vote">
+		<li>Postd on : {{date_posted}} || username: {{../user}} || Votes: {{votes}} 
+		<form action="/updateVote" method="POST" style="border:none; display:inline;">
+		{{!-- <input type="hidden" name="_method" value="PUT"> --}}
+			<input type="hidden" name="id" value="{{id}}">
+			<input type="submit" name="votes" value="Vote">
 		</form></li>
 	</ul>
 	{{/each}}

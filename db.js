@@ -1,5 +1,5 @@
 var pg = require('pg');
-var dbUrl = "pg://localhost/myforum_db";
+ var dbUrl = "pg://localhost/myforum_db";
 // var dbUrl = process.env.DATABASE_URL
 
 module.exports = {
@@ -113,12 +113,12 @@ module.exports = {
   updateview: function(table, columns, id, cb){
     pg.connect(dbUrl, function (err, client, done){
       var query = 'UPDATE '+ table +' SET '+ columns+' = '+ columns+'+1' +' WHERE ' + table+'.id'+'='+id
-      console.log(query)
+      // console.log(query)
       client.query(query, function (err, result){
         cb(result.rows);
       })
     })
-    this.end();
+    this.end();    
   },
   des: function(table, column, cb) {
     pg.connect(dbUrl, function (err, client, done) {

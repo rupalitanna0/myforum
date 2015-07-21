@@ -30,19 +30,20 @@ module.exports.controller = function(app) {
 		// 	location : geo.location
 		// };
 		db.create('posts', req.body, function (post){
-			
+			db.findRelations
 				res.redirect('/topics');
 
 	
 		});
 
 	});
-	app.put('/updateVote', function (res, req){
-		db.updateview('posts', 'votes', req.params.id, function(vote){
+	app.post('/updateVote', function (req, res){
+		
+		db.updateview('posts', 'votes', req.body.id, function(vote){
 			var voteObj={
 				votes: vote
 			}
-			res.render('/topics', voteObj);
+			res.redirect('/topics/'+req.body.id);
 		});
 	});
 	
