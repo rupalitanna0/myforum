@@ -3,19 +3,20 @@
       <a href="/logout">Logout</a>
     </nav>
 <div id="container">
-<h3><a href="/topics/new">Add a Topic</a></h3>
+<h3 style="text-decoration:underline; font-size:22px;"><a href="/topics/new">Add a Topic</a></h3>
 {{#each topics}}
-<div class="topics">
+<div id="topics">
+
 	
 	<ul>
+		<a href="/topics/{{id}}"><li>Topic : {{title}}</li></a>
 		
-		<li><a href="/topics/{{id}}"><li>Topic :         {{title}}</li></a>Posted Date : {{date_made}}
-	Views: {{views}}
-		Votes:
-		Name : {{../user}}</li>
-
-		<a href="/posts/new"><li>Add a Comment</li></a>
+		<li>Posted Date : {{date_made}}</li>
+		<li>Views: {{views}}</li>
+		<li>Name : {{../user}}</li>
+		<li style="text-decoration:underline;"><a href="/posts/new">Add a Comment</a></li>
 	</ul>
+	<img src="{{img}}" alt="" width="200px" height="200px">
 </div>
 
 {{/each}}

@@ -1,17 +1,21 @@
 body{
-	background-color: #f7f4ed;
+	background: rgba(255, 255, 255, 0.5) url(../images/background.jpg);
 	font-family: arial;
+	width: 100%;
+	color: #85000d;
+	text-align: justify;
 }
 header, a, h1{
 	text-decoration: none;
 	margin-left: 25px ;
-		color: #759da5;
+		color: #85000d;
 
 }
+
 .nav{
 	height: 30px;
 	width: 100%;
-	background: #e5decc;
+	background: #ffffff;
 	padding-top: 10px;
 	font-size: 18px;
 	font-weight: bolder;
@@ -23,12 +27,31 @@ header, a, h1{
 
 #container{
 	margin: 25px auto;
-	background-color: #e5decc;
-	color: #759da5;
+	
 	width: 90%;
 	padding: 35px;
 	height: auto;
+background: #ffffff;
+/* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,0.5) 0%, rgba(200,200,200,0.8) 100%);
+/* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(100%,rgba(200,200,200,0.8)));
+/* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(200,200,200,0.8) 100%);
+/* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(200,200,200,0.8) 100%);
+/* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(200,200,200,0.8) 100%);
+/* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(200,200,200,0.8) 100%);
+/* W3C */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#73bbe9', endColorstr='#17567f',GradientType=0 ); IE6-9 */
+filter: none; /*IE6-9 */
 }
+
+
+	
+
 h3{
 	font-size: 16px;
 }
@@ -39,8 +62,6 @@ form{
 	border: 2px solid #e5decc;
 	border-radius: 5px;
 	margin: 25px;
-	background-color: #e5decc;
-	opacity: 0.4;
 }
 label input{
 	margin: 10px;
@@ -48,14 +69,29 @@ label input{
 ul{
 	
 	list-style: none;
-	
+	text-align: justify;
 	line-height: 1.5em;
+	display: inline-block;
 
 }
 li:first-child{
 	width: 700px;
+	text-align: center;
+	font-size: 22px;
 } 
 
-.topics{
-	color: black;
+
+#topics{
+	width: 100%;
+	border: black 2px solid;
+	margin: 5px;
+	height: 250px;
+	font-weight: bolder;
+}
+#topics img{
+	float: left;
+	margin-top: 23px;
+	margin-left: 25px;
+	border: 2px black solid;
+	
 }

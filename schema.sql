@@ -1,8 +1,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS topics CASCADE;
 DROP TABLE IF EXISTS posts CASCADE;
-DROP TABLE IF EXISTS views CASCADE;
-DROP TABLE IF EXISTS votes CASCADE;
+
 
 
 CREATE TABLE users(
@@ -21,7 +20,7 @@ CREATE TABLE topics(
 	user_id INTEGER REFERENCES users,
 	date_made TIMESTAMP default current_timestamp,
 	views INTEGER,
-	img 
+	img TEXT
 
 );
 
@@ -33,6 +32,8 @@ CREATE TABLE posts(
 	user_id INTEGER REFERENCES users,
 	topic_id INTEGER REFERENCES topics,
 	post TEXT,
-	location VARCHAR(255)
+	location VARCHAR(255),
+	votes INTEGER
+
 );	
 

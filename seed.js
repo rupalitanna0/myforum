@@ -17,21 +17,26 @@ var firstuser = {
 };
 var votes=[1, 3, 4]
 var users = [firstuser]
+var url=['https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRBhtvUTQF03LskxZItrpYxJKzYlWEoJ5RbpfugF5BIik161IGe', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQcl0P-W_tawidKGnLz0ZcG43C7OMZCSWm0Pw3zX1o-Lc1A5qLjpA', 'http://selfcarers.com/wp-content/uploads/2015/01/ways-to-develop-healthy-eating-habits.jpg']
 
 var firsttopic = {
   title: title[0],
   user_id: 1,
-  views: view[0]
+  views: view[0],
+  img: url[0]
+
 };
 var secondtopic = {
   title: title[1],
   user_id: 1,
-  views: view[1]
+  views: view[1],
+  img: url[1]
 };
 var thirdtopic = {
   title: title[2],
   user_id: 1,
-  views: view[2]
+  views: view[2],
+  img: url[2]
 };
 var firstPost ={
   user_id: null,
