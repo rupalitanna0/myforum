@@ -42,7 +42,7 @@ module.exports.controller = function(app) {
 			var voteObj={
 				votes: vote
 			}
-			res.render('/topics', vote);
+			res.render('/topics', voteObj);
 		});
 	});
 	
