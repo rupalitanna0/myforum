@@ -3,7 +3,7 @@ var db = require('../db.js');
 module.exports.controller = function(app) {
 
 	app.get('/topics', function (req, res){
-		db.all('topics', function(data){
+		db.des('topics', 'views', function(data){
 			db.findUserName('username', 'topics', 'users', 'user_id', function (userData){
 				var topic = {
 					topics: data,
@@ -32,15 +32,24 @@ module.exports.controller = function(app) {
 		db.find('topics', req.params.id, function (topicData){
 			console.log(topicData);
 			db.findRelations('posts', 'topic_id', req.params.id, function (postsData){
-				db.findUserName('username', 'posts', 'users', 'user_id', function (userData){
-
+				db.findUserName('*', 'posts', 'users', 'user_id', function (userData){
+					db.updateview('topics', 'views', req.params.id, function (view){	
 					var topicObj = {
 						topic: topicData[0],
 						posts: postsData,
-						user: userData[0]
+						user: userData,
+						views: view[0]
 					};
 					console.log("THIS IS USEROBJ", topicObj);
 					res.render('topicWithPost', topicObj)
+					// var data = {
+					// 	topic: topicData[0],
+					// 	posts: userData
+					// 	user: userData
+					// };
+					// console.log('#########################this is data',data);
+					// res.render('topicWithPost',data);
+				});
 				});
 			});
 		});

@@ -99,8 +99,8 @@ module.exports = {
   },
   findUserName: function (columns, table, table2, column1, cb){
       pg.connect(dbUrl, function (err, client, done){
-        var query = 'SELECT '+columns+' FROM ' + table + ' LEFT JOIN ' + table2 + ' ON ' + table+'.'+column1 + '=' + table2+'.id';
-        console.log(query)
+        var query = 'SELECT '+columns+' FROM ' + table + ' FULL OUTER JOIN ' + table2 + ' ON ' + table+'.'+column1 + '=' + table2+'.id'
+        console.log("iam  ################################################### qqqqqqqqqqqqqqqqq",query)
         client.query(query, function (err, result){
           console.log("THIS IS RESULT", result);
           cb(result.rows)
@@ -109,25 +109,26 @@ module.exports = {
       })
       this.end();
   },
-  udateView: function(){
+  updateview: function(table, columns, id, cb){
     pg.connect(dbUrl, function (err, client, done){
-        var query= 'UPDATE ' + table +' SET '+ columns3+  '=' columns3 + 1 +' WHERE ' +table+'.'+columns+'='+columns2;
-        console.log(query)
-        client.query(query, function (err, result){
-          console.log("THIS IS RESULT", result);
-          cb(result.rows)
-        })
-
+      var query = 'UPDATE '+ table +' SET '+ columns+' = '+ columns+'+1' +' WHERE ' + table+'.id'+'='+id
+      console.log(query)
+      client.query(query, function (err, result){
+        cb(result.rows);
       })
-      this.end();
-
-    // client.query(query, function (err, table, RevisionId, columns, columns2 done){
-    //   console.log("this is ")
-    // })
+    })
+    this.end();
+  },
+  des: function(table, column, cb) {
+    pg.connect(dbUrl, function (err, client, done) {
+      var query = 'SELECT * FROM ' + table + ' ORDER BY '+ column + ' DESC'
+      console.log('i am view mxxxxxxxxxxxxxxxxxxxxxxxx',query);
+      client.query(query, function(err, result) {
+        done();
+        cb(result.rows);
+      });
+    });
+    this.end(); 
   }
-  //   Select 
-  //     count(views.id)
-  // from views
-
-  // client.query('UPDATE views set views = views+1 WHERE topic_id=$1')
+  
 };

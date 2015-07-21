@@ -12,7 +12,6 @@ CREATE TABLE users(
 	username VARCHAR(255),
 	password VARCHAR(255)
 
-
 );
 
 
@@ -21,7 +20,8 @@ CREATE TABLE topics(
 	title VARCHAR(255),
 	user_id INTEGER REFERENCES users,
 	date_made TIMESTAMP default current_timestamp,
-	votes INTEGER
+	views INTEGER
+
 );
 
 
@@ -34,9 +34,10 @@ CREATE TABLE posts(
 	post TEXT,
 	location VARCHAR(255)
 );	
-CREATE TABLE views(
+
+CREATE TABLE votes(
 	id SERIAL PRIMARY KEY,
+	user_id INTEGER REFERENCES users,
 	topic_id INTEGER REFERENCES topics,
-	views INTEGER
-	
+	votes INTEGER
 );	

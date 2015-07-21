@@ -7,7 +7,7 @@ var password = ["2015"]
 
 var title=["Healthy Eating Habits for Your Child", "Guide your family's choices rather than dictate foods.", " Plan for snacks."]
 var post=["By teaching your children healthy eating habits, and modeling these behaviors in yourself, you can help your children maintain a healthy weight and normal growth. Also, the eating habits your children pick up when they are young will help them maintain a healthy lifestyle when they are adults.", "Make a wide variety of healthful foods available in the house. This practice will help your children learn how to make healthy food choices. Leave the unhealthy choices like chips, soda, and juice at the grocery store. Serve water with meals.", "Continuous snacking may lead to overeating, but snacks that are planned at specific times during the day can be part of a nutritious diet, without spoiling a child's appetite at meal times. You should make snacks as nutritious as possible, without depriving your children of occasional chips or cookies, especially at parties or other social events."]
-
+var view = [1, 3, 5];
 var firstuser = {
   first_name: first_name[0],
   last_name: last_name[0],
@@ -19,15 +19,18 @@ var users = [firstuser]
 
 var firsttopic = {
   title: title[0],
-  user_id: 1
+  user_id: 1,
+  views: view[0]
 };
 var secondtopic = {
   title: title[1],
-  user_id: 1
+  user_id: 1,
+  views: view[1]
 };
 var thirdtopic = {
   title: title[2],
-  user_id: 1
+  user_id: 1,
+  views: view[2]
 };
 var firstPost ={
   user_id: null,
