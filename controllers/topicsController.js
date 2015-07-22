@@ -39,6 +39,8 @@ module.exports.controller = function(app) {
 						user: userData[0].username,
 						views: view[0]
 					};
+					
+
 					console.log("THIS IS USEROBJ", topicObj);
 					res.render('topicWithPost', topicObj)
 					

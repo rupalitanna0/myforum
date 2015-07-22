@@ -21,7 +21,7 @@ module.exports = {
         if(err){
           console.log("this is an err")
         }
-        console.log(result)
+        // console.log(result)
         done();
         cb(result.rows);
       });
@@ -31,6 +31,7 @@ module.exports = {
   findRelations: function(table, column, id, cb) {
     pg.connect(dbUrl, function(err, client, done) {
       client.query('SELECT * FROM ' + table + ' WHERE ' + table + '.' + column + ' = ' + id, function(err, result) {
+
         done();
         cb(result.rows);
       });
@@ -48,7 +49,7 @@ module.exports = {
   },
   create: function(table, obj, cb) {
 
-    console.log(table, obj);
+    // console.log(table, obj);
 
     pg.connect(dbUrl, function(err, client, done) {
       var columns = [];
@@ -60,13 +61,13 @@ module.exports = {
         dollars.push('$' + (i + 1));
       });
       var query = 'INSERT INTO ' + table + '(' + columns.join(', ') + ') VALUES(' + dollars.join(', ') + ') RETURNING id AS id';
-      console.log(query);
-      console.log('values', values)
+      // console.log(query);
+      // console.log('values', values)
       client.query(query, values, function(err, result) {
         done();
 
-        console.log(err);
-        console.log(result);
+        // console.log(err);
+        // console.log(result);
         cb(result.rows[0]);
       });
     });
@@ -101,9 +102,9 @@ module.exports = {
   findUserName: function (columns, table, table2, column1, cb){
       pg.connect(dbUrl, function (err, client, done){
         var query = 'SELECT '+columns+' FROM ' + table + ' FULL OUTER JOIN ' + table2 + ' ON ' + table+'.'+column1 + '=' + table2+'.id'
-        console.log("iam  ################################################### qqqqqqqqqqqqqqqqq",query)
+         console.log(query)
         client.query(query, function (err, result){
-          console.log("THIS IS RESULT", result);
+          // console.log("THIS IS RESULT", result);
           cb(result.rows)
         })
 
@@ -123,7 +124,6 @@ module.exports = {
   des: function(table, column, cb) {
     pg.connect(dbUrl, function (err, client, done) {
       var query = 'SELECT * FROM ' + table + ' ORDER BY '+ column + ' DESC'
-      console.log('i am view mxxxxxxxxxxxxxxxxxxxxxxxx',query);
       client.query(query, function(err, result) {
         done();
         cb(result.rows);

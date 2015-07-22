@@ -1,4 +1,5 @@
 var db = require('../db.js');
+// var geoip = require('geoip-lite');
 
 module.exports.controller = function(app) {
 //For all routes related to a post put them here
@@ -22,19 +23,24 @@ module.exports.controller = function(app) {
 		
 	});
 	app.post('/posts', function(req, res){
-		// var geo = geoip.lookup(req.ip);
+		// var geo = geoip.lookup('207.97.227.239');
+		// console.log(geo);
 		// var postObject = {
 		// 	data_posted : req.body.data_posted,
 		// 	user_id : req.session.currentuser,
 		// 	topic_id : whatever,
 		// 	location : geo.location
 		// };
+		// var postObj = req.body;
+		// postObj.location = geo.city;
+
 		db.create('posts', req.body, function (post){
-			db.findRelations
+				
 				res.redirect('/topics');
 
-	
+			
 		});
+
 
 	});
 	app.post('/updateVote', function (req, res){
